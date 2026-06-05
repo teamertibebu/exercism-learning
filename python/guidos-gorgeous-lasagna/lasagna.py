@@ -9,6 +9,7 @@ of a module and its functions and/or classes.
 
 
 EXPECTED_BAKE_TIME = 40
+PREPARATION_TIME = 2
 
 def bake_time_remaining(elapsed_bake_time):
     """Calculate the bake time remaining.
@@ -40,7 +41,7 @@ def preparation_time_in_minutes(number_of_layers):
     an argument and returns the expected preparation time in minutes.
     """
 
-    return number_of_layers * 2
+    return number_of_layers * PREPARATION_TIME
 
 
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
