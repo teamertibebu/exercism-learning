@@ -8,12 +8,8 @@ of a module and its functions and/or classes.
 """
 
 
-#TODO (student): define your EXPECTED_BAKE_TIME (required) and PREPARATION_TIME (optional) constants below.
-
 EXPECTED_BAKE_TIME = 40
-PREPARATION_TIME = 30
 
-#TODO (student): Remove 'pass' and complete the 'bake_time_remaining()' function below.
 def bake_time_remaining(elapsed_bake_time):
     """Calculate the bake time remaining.
 
@@ -30,18 +26,36 @@ def bake_time_remaining(elapsed_bake_time):
     return EXPECTED_BAKE_TIME - elapsed_bake_time
 
 
-#TODO (student): Define the 'preparation_time_in_minutes()' function below.
-# To avoid the use of magic numbers (see: https://en.wikipedia.org/wiki/Magic_number_(programming)), you should define a PREPARATION_TIME constant.
-# You can do that on the line below the 'EXPECTED_BAKE_TIME' constant.
-# This will make it easier to do calculations, and make changes to your code.
 
 def preparation_time_in_minutes(number_of_layers):
+    """Calculate the preparation time in minutes.
+
+    Parameters:
+        number_of_layers (int): the number of layers in the lasagna.
+
+    Returns:
+        int: The remaining bake time (in minutes) derived from 'number_of_layers'.
+
+    Function that takes the number of layers the lasagna has been in the oven as
+    an argument and returns the expected preparation time in minutes.
+    """
+
     return number_of_layers * 2
 
-#TODO (student): define the 'elapsed_time_in_minutes()' function below.
 
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
+    """Calculate the elapsed time in minutes.
 
+       Parameters:
+           number_of_layers (int): the number of layers in the lasagna.
+           elapsed_bake_time (int): The baking time already elapsed.
 
-# TODO (student): Remember to go back and add docstrings to all your functions
-#  (you can copy and then alter the one from bake_time_remaining.)
+       Returns:
+           int: The remaining bake time (in minutes) derived from 'number_of_layers'.
+
+       Function that takes the number of layers and the elapsed bake time derived
+       from the lasagna as an argument and returns the expected elapsed time in minutes.
+       """
+    prep = preparation_time_in_minutes(number_of_layers)
+
+    return prep + elapsed_bake_time
