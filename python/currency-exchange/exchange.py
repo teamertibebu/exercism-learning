@@ -28,7 +28,7 @@ def exchange_money(budget, exchange_rate):
 
     """
 
-    pass
+    return budget / exchange_rate
 
 
 def get_change(budget, exchanging_value):
@@ -53,7 +53,7 @@ def get_change(budget, exchanging_value):
 
     """
 
-    pass
+    return budget - exchanging_value
 
 
 def get_value_of_bills(denomination, number_of_bills):
@@ -77,7 +77,7 @@ def get_value_of_bills(denomination, number_of_bills):
 
     """
 
-    pass
+    return denomination * number_of_bills
 
 
 def get_number_of_bills(amount, denomination):
@@ -102,7 +102,7 @@ def get_number_of_bills(amount, denomination):
 
     """
 
-    pass
+    return int(amount / denomination)
 
 
 def get_leftover_of_bills(amount, denomination):
@@ -127,7 +127,7 @@ def get_leftover_of_bills(amount, denomination):
 
     """
 
-    pass
+    return amount % denomination
 
 
 def exchangeable_value(budget, exchange_rate, spread, denomination):
@@ -156,4 +156,11 @@ def exchangeable_value(budget, exchange_rate, spread, denomination):
     determining the exchange rate plus the spread.
     """
 
-    pass
+    spread_decimal = spread / 100
+    real_exchange_rate = (exchange_rate * spread_decimal) + exchange_rate
+    exchanged = exchange_money(budget, real_exchange_rate)
+
+    bill_value_new_currency = int(exchanged / denomination)
+    max_value_new_currency = bill_value_new_currency * denomination
+
+    return max_value_new_currency
